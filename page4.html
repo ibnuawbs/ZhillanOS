@@ -1,0 +1,277 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ZHILLAN OS - DETECTION RESULTS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#005312",
+                        "on-primary-container": "#f7fff1",
+                        "surface-variant": "#dfe4da",
+                        "surface": "#f6fbf0",
+                        "secondary-fixed": "#ffdbc9",
+                        "secondary-fixed-dim": "#ffb68c",
+                        "inverse-primary": "#84da80",
+                        "tertiary-fixed-dim": "#89d0ed",
+                        "outline-variant": "#bfcab9",
+                        "on-tertiary-container": "#fafdff",
+                        "secondary-container": "#ffa26a",
+                        "on-secondary-container": "#783603",
+                        "on-background": "#181d17",
+                        "surface-container-highest": "#dfe4da",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004d62",
+                        "tertiary": "#05647e",
+                        "on-tertiary-fixed": "#001f29",
+                        "primary": "#116b1f",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2d322b",
+                        "surface-container": "#ebefe5",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#156d22",
+                        "primary-container": "#318536",
+                        "on-primary-fixed": "#002204",
+                        "surface-dim": "#d7dcd1",
+                        "background": "#f6fbf0",
+                        "surface-bright": "#f6fbf0",
+                        "on-secondary-fixed-variant": "#753401",
+                        "on-secondary-fixed": "#321200",
+                        "on-primary": "#ffffff",
+                        "outline": "#707a6c",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#317d98",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#84da80",
+                        "on-surface": "#181d17",
+                        "secondary": "#934b19",
+                        "tertiary-fixed": "#baeaff",
+                        "surface-container-high": "#e5eadf",
+                        "surface-container-low": "#f1f5eb",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#40493d",
+                        "primary-fixed": "#a0f799",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#eef2e8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "max-width": "1200px",
+                        "margin-desktop": "32px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Space Mono"],
+                        "headline-xl": ["Space Mono"],
+                        "body-md": ["Space Mono"],
+                        "headline-lg": ["Space Mono"],
+                        "caption": ["Space Mono"],
+                        "headline-lg-mobile": ["Space Mono"],
+                        "body-lg": ["Space Mono"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "700"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #000000;
+            image-rendering: pixelated;
+        }
+        .pixel-border {
+            box-shadow: 
+                0 -4px 0 0 #000,
+                0 4px 0 0 #000,
+                -4px 0 0 0 #000,
+                4px 0 0 0 #000;
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+        .crt-flicker {
+            animation: flicker 0.15s infinite;
+        }
+        @keyframes flicker {
+            0% { opacity: 0.98; }
+            50% { opacity: 1; }
+            100% { opacity: 0.99; }
+        }
+    </style>
+<style>
+    @keyframes staggerIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .stagger-item {
+        animation: staggerIn 0.5s ease-out forwards;
+        opacity: 0;
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+    .delay-6 { animation-delay: 0.7s; }
+</style></head>
+<body class="min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-secondary dark:bg-on-secondary-fixed-variant text-on-secondary dark:text-secondary-fixed font-label-md text-label-md docked full-width top-0 border-b-4 border-on-secondary-container shadow-[4px_4px_0px_0px_rgba(50,18,0,1)] z-50 sticky">
+<div class="flex justify-between items-center w-full px-margin-mobile py-2">
+<div class="font-headline-lg-mobile text-headline-lg-mobile uppercase text-on-secondary dark:text-secondary-fixed">
+                ZHILLAN OS
+            </div>
+
+<div class="flex gap-4">
+<span class="material-symbols-outlined hover:bg-on-secondary-fixed-variant p-1 cursor-pointer">map</span>
+<span class="material-symbols-outlined hover:bg-on-secondary-fixed-variant p-1 cursor-pointer">inventory_2</span>
+<span class="material-symbols-outlined hover:bg-on-secondary-fixed-variant p-1 cursor-pointer">settings</span>
+</div>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center justify-center p-margin-mobile md:p-margin-desktop relative overflow-hidden">
+<!-- CRT Screen Overlay -->
+<div class="absolute inset-0 pointer-events-none z-10 crt-flicker bg-[radial-gradient(circle,transparent_50%,rgba(0,0,0,0.4)_100%)]">
+<div class="scanline"></div>
+</div>
+<!-- Terminal Content -->
+<div class="w-full max-w-2xl bg-black border-4 border-on-secondary-container p-6 md:p-10 relative z-20 shadow-[8px_8px_0px_0px_rgba(50,18,0,0.8)]">
+<div class="flex items-center gap-4 mb-8 border-b-4 border-primary pb-4">
+<span class="material-symbols-outlined text-primary-fixed" style="font-size: 48px;">android_fingerprint</span>
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary-fixed uppercase tracking-wider">Detection Mode</h2>
+<p class="font-caption text-caption text-surface-variant opacity-70">SYSTEM_CORE::ANALYSIS_v4.2.0</p>
+</div>
+</div>
+<!-- Stats List -->
+<div class="space-y-6">
+<div class="flex justify-between items-center group cursor-pointer stagger-item delay-1">
+<span class="font-body-lg text-body-lg text-surface-container-lowest uppercase">Tingkat Lucu</span>
+<div class="flex items-center gap-2">
+<span class="font-headline-lg text-headline-lg text-primary-fixed group-hover:scale-110 transition-transform">9999%</span>
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</div>
+<div class="flex justify-between items-center group cursor-pointer stagger-item delay-2">
+<span class="font-body-lg text-body-lg text-surface-container-lowest uppercase">TINGKAT CUEK</span>
+<div class="flex items-center gap-2">
+<span class="font-headline-lg text-headline-lg text-secondary-container">99%</span>
+<div class="w-24 h-4 bg-on-secondary-fixed-variant relative">
+<div class="absolute top-0 left-0 h-full bg-secondary-container" style="width: 99%;"></div>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-center group cursor-pointer stagger-item delay-3">
+<span class="font-body-lg text-body-lg text-surface-container-lowest uppercase">Tingkat Bahaya</span>
+<span class="font-headline-lg text-headline-lg text-error px-2 border-2 border-error animate-pulse">EXTREME</span>
+</div>
+<div class="flex justify-between items-center group cursor-pointer stagger-item delay-4">
+<span class="font-body-lg text-body-lg text-surface-container-lowest uppercase">Mental Stability</span>
+<span class="font-headline-lg text-headline-lg text-tertiary-fixed-dim">Diragukan</span>
+</div>
+<div class="flex justify-between items-center group cursor-pointer stagger-item delay-5">
+<span class="font-body-lg text-body-lg text-surface-container-lowest uppercase">Butuh Makan</span>
+<div class="flex gap-1">
+<span class="font-headline-lg text-headline-lg text-primary-fixed">SELALU</span>
+<span class="material-symbols-outlined text-primary-fixed">restaurant</span>
+</div>
+</div>
+</div>
+<!-- Conclusion Box -->
+<div class="mt-12 p-6 border-on-secondary-container relative overflow-hidden stagger-item delay-6">
+<!-- Inner Glow Effect -->
+<div class="absolute inset-0 border-2 border-white/20 pointer-events-none"></div>
+<h3 class="font-label-md text-label-md mb-1 uppercase opacity-80 text-secondary-container">RESULT_SUMMARY:</h3>
+<p class="font-headline-lg-mobile text-headline-lg-mobile uppercase leading-tight text-primary-fixed">
+                    Subjek terlalu menggemaskan.
+                </p>
+<div class="mt-8 flex justify-center">
+<button class="bg-primary hover:bg-primary-container text-on-primary font-bold py-3 px-8 border-b-4 border-r-4 border-on-primary-fixed-variant active:border-0 active:translate-y-1 active:translate-x-1 uppercase tracking-widest text-body-lg">
+        NEXT &gt;
+    </button>
+</div></div>
+<!-- Terminal Footer -->
+<div class="mt-8 flex justify-between items-center border-t-2 border-white/10 pt-4">
+<div class="flex gap-2">
+<div class="w-3 h-3 bg-error"></div>
+<div class="w-3 h-3 bg-secondary-container"></div>
+<div class="w-3 h-3 bg-primary-fixed"></div>
+</div>
+<div class="font-caption text-caption text-primary-fixed animate-pulse">
+                    _WAITING_FOR_INPUT...
+                </div>
+</div>
+</div>
+<!-- Decorative Pixel Art Illustration Background -->
+<div class="absolute -bottom-20 -right-20 opacity-20 pointer-events-none">
+<img alt="8-bit style volcano landscape" class="w-96 h-auto" data-alt="A detailed pixel art landscape inspired by 16-bit JRPGs. It features a lush green jungle floor with scattered flowers, a tall waterfall cascading down a rocky cliff, and two smoking volcanoes in the background under a bright yellow sun. The style is strictly retro pixel art with high contrast, vibrant greens, blues, and oranges, echoing the nostalgic aesthetic of traditional adventure games." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4yhoPnrtGq0yUyDP85RXu4L5sUxnHS82AEx1ku8MnLG8IsXD_OQjAGZ5uYnGuOoMw-aeewOmc89fvSVzk_xcWDQyErNtDegcMU0jeqwQJ7U5WgB_9vzYqS1GnSO3F3Po_lDGqtAAJaUTL6K783Qtkc2e2YuPTW9cEBN3iKHaZXEPAS582ikJ3gWmX7m3-7yQbmqIlJVAdZSK0Gi9zUK9B6LIOKSapSNMkuncE6emQG3e9uxj-pBoAMmvHrnpkWafLrG9DYMX1Lg7l">
+</div>
+</main>
+<!-- Interactive Elements Scripts -->
+<script>
+        // Typing effect for the conclusion or generic logging
+        const conclusionText = document.querySelector('.text-on-secondary-container');
+        if (conclusionText) {
+            const originalText = conclusionText.innerText;
+            conclusionText.innerText = '';
+            let i = 0;
+            const typing = setInterval(() => {
+                if (i < originalText.length) {
+                    conclusionText.innerText += originalText.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typing);
+                }
+            }, 50);
+        }
+
+        // Active state handling for top nav
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                navLinks.forEach(l => {
+                    l.classList.remove('text-on-secondary', 'border-b-4', 'border-primary-fixed');
+                    l.classList.add('text-secondary-fixed-dim', 'opacity-80');
+                });
+                link.classList.add('text-on-secondary', 'border-b-4', 'border-primary-fixed');
+                link.classList.remove('text-secondary-fixed-dim', 'opacity-80');
+            });
+        });
+  startBtn.addEventListener('click', () => {
+    window.location.href = "/page5.html";
+});
+    </script>
+
+
+</body></html>
