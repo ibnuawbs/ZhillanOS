@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZHILLAN OS - SYSTEM OVERLOAD</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#317d98",
+                    "on-primary-fixed-variant": "#005312",
+                    "surface-variant": "#dfe4da",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e5eadf",
+                    "secondary-container": "#ffa26a",
+                    "surface": "#f6fbf0",
+                    "tertiary": "#05647e",
+                    "on-surface": "#181d17",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#a0f799",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f1f5eb",
+                    "surface-bright": "#f6fbf0",
+                    "outline-variant": "#bfcab9",
+                    "tertiary-fixed": "#baeaff",
+                    "primary": "#116b1f",
+                    "inverse-primary": "#84da80",
+                    "on-primary-fixed": "#002204",
+                    "primary-container": "#318536",
+                    "outline": "#707a6c",
+                    "surface-container-highest": "#dfe4da",
+                    "secondary-fixed-dim": "#ffb68c",
+                    "on-secondary-fixed": "#321200",
+                    "on-error-container": "#93000a",
+                    "on-background": "#181d17",
+                    "secondary": "#934b19",
+                    "on-surface-variant": "#40493d",
+                    "surface-tint": "#156d22",
+                    "inverse-on-surface": "#eef2e8",
+                    "background": "#f6fbf0",
+                    "on-secondary-fixed-variant": "#753401",
+                    "surface-dim": "#d7dcd1",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#ffdbc9",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#fafdff",
+                    "on-primary-container": "#f7fff1",
+                    "primary-fixed-dim": "#84da80",
+                    "inverse-surface": "#2d322b",
+                    "on-tertiary-fixed-variant": "#004d62",
+                    "on-secondary-container": "#783603",
+                    "tertiary-fixed-dim": "#89d0ed",
+                    "surface-container": "#ebefe5",
+                    "on-tertiary-fixed": "#001f29"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "unit": "8px",
+                    "max-width": "1200px",
+                    "margin-desktop": "32px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Space Mono"],
+                    "headline-lg-mobile": ["Space Mono"],
+                    "headline-lg": ["Space Mono"],
+                    "caption": ["Space Mono"],
+                    "body-lg": ["Space Mono"],
+                    "label-md": ["Space Mono"],
+                    "headline-xl": ["Space Mono"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .animate-blink {
+            animation: blink 0.5s step-end infinite;
+        }
+        .pixel-border {
+            box-shadow: 
+                0 -4px 0 0 #321200,
+                0 4px 0 0 #321200,
+                -4px 0 0 0 #321200,
+                4px 0 0 0 #321200;
+        }
+        .pixel-shadow {
+            box-shadow: 4px 4px 0px 0px rgba(50,18,0,1);
+        }
+        .pixel-shadow-active {
+            box-shadow: 0px 0px 0px 0px rgba(50,18,0,1);
+            transform: translateY(4px);
+        }
+    </style>
+</head>
+<body class="bg-black min-h-screen flex flex-col font-body-md overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-secondary dark:bg-on-secondary-fixed-variant text-on-secondary dark:text-secondary-fixed font-label-md text-label-md docked full-width top-0 border-b-4 border-on-secondary-container shadow-[4px_4px_0px_0px_rgba(50,18,0,1)] flex justify-between items-center w-full px-margin-mobile py-2 z-50">
+<div class="font-headline-lg-mobile text-headline-lg-mobile uppercase text-on-secondary dark:text-secondary-fixed">
+            ZHILLAN OS
+        </div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-on-secondary-fixed-variant transition-all active:translate-y-1 active:shadow-none p-1">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-margin-mobile text-center gap-8">
+<!-- Error Messaging -->
+<div class="flex flex-col gap-4">
+<h1 class="text-error font-headline-xl text-headline-xl animate-blink tracking-tighter">
+                SYSTEM OVERLOAD
+            </h1>
+<p class="text-white font-body-lg text-body-lg opacity-90">
+                karena Zhillan terlalu lucuu..
+            </p>
+</div>
+<!-- Progress Section -->
+<div class="w-full max-w-md flex flex-col items-center gap-6">
+<div class="w-full flex flex-col gap-2">
+<div class="flex justify-between items-end">
+<span class="text-primary-fixed font-label-md text-label-md uppercase">memperbaiki sistem</span>
+<span class="text-white font-label-md text-label-md" id="progress-percent">0%</span>
+</div>
+<!-- Retro Progress Bar -->
+<div class="w-full h-8 bg-surface-container-highest border-4 border-on-secondary-container p-1 overflow-hidden">
+<div class="h-full bg-primary w-0 transition-all duration-100 ease-linear" id="progress-bar" style="box-shadow: inset -4px 0 0 rgba(0,0,0,0.2);"></div>
+</div>
+</div>
+<!-- Action Button (Hidden Initially) -->
+<div class="opacity-0 transition-opacity duration-500 pointer-events-none" id="button-container">
+<button class="bg-primary text-on-primary font-label-md text-label-md uppercase px-12 py-4 border-4 border-on-primary-fixed-variant shadow-[4px_4px_0px_0px_rgba(50,18,0,1)] hover:bg-on-primary-fixed-variant active:translate-y-1 active:shadow-none transition-all">
+                    NEXT
+                </button>
+</div>
+</div>
+</main>
+<!-- Background Glitch Effect -->
+<div class="fixed inset-0 pointer-events-none z-[-1] opacity-10">
+<div class="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]"></div>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const progressBar = document.getElementById('progress-bar');
+            const progressPercent = document.getElementById('progress-percent');
+            const buttonContainer = document.getElementById('button-container');
+            
+            let progress = 0;
+            const duration = 5000; // 5 seconds
+            const intervalTime = 50; // Update every 50ms
+            const step = (100 / (duration / intervalTime));
+
+            const loadingTimer = setInterval(() => {
+                progress += step;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(loadingTimer);
+                    
+                    // Show the button
+                    buttonContainer.classList.remove('opacity-0', 'pointer-events-none');
+                    buttonContainer.classList.add('opacity-100');
+                }
+                
+                progressBar.style.width = `${progress}%`;
+                progressPercent.textContent = `${Math.round(progress)}%`;
+            }, intervalTime);
+        });
+  startBtn.addEventListener('click', () => {
+    window.location.href = "/page6.html";
+});
+    </script>
+</body></html>
