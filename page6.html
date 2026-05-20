@@ -1,0 +1,244 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ZHILLAN OS - Romantic Finale</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2d322b",
+                        "on-secondary-fixed-variant": "#753401",
+                        "on-tertiary-container": "#fafdff",
+                        "on-tertiary-fixed-variant": "#004d62",
+                        "on-background": "#181d17",
+                        "primary-fixed-dim": "#84da80",
+                        "secondary": "#934b19",
+                        "inverse-primary": "#84da80",
+                        "tertiary-fixed-dim": "#89d0ed",
+                        "surface-container": "#ebefe5",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#ffb68c",
+                        "outline-variant": "#bfcab9",
+                        "tertiary-container": "#317d98",
+                        "surface-container-high": "#e5eadf",
+                        "primary": "#116b1f",
+                        "on-tertiary-fixed": "#001f29",
+                        "surface-dim": "#d7dcd1",
+                        "primary-fixed": "#a0f799",
+                        "surface-variant": "#dfe4da",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f6fbf0",
+                        "secondary-container": "#ffa26a",
+                        "surface": "#f6fbf0",
+                        "on-surface-variant": "#40493d",
+                        "error-container": "#ffdad6",
+                        "outline": "#707a6c",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#f7fff1",
+                        "tertiary-fixed": "#baeaff",
+                        "surface-tint": "#156d22",
+                        "surface-bright": "#f6fbf0",
+                        "surface-container-low": "#f1f5eb",
+                        "surface-container-highest": "#dfe4da",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#318536",
+                        "tertiary": "#05647e",
+                        "on-secondary-fixed": "#321200",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#783603",
+                        "inverse-on-surface": "#eef2e8",
+                        "on-primary-fixed-variant": "#005312",
+                        "on-primary-fixed": "#002204",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#ffdbc9",
+                        "on-surface": "#181d17"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "max-width": "1200px",
+                        "gutter": "16px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "caption": ["Space Mono"],
+                        "headline-lg": ["Space Mono"],
+                        "body-lg": ["Space Mono"],
+                        "body-md": ["Space Mono"],
+                        "headline-xl": ["Space Mono"],
+                        "headline-lg-mobile": ["Space Mono"],
+                        "label-md": ["Space Mono"]
+                    },
+                    "fontSize": {
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Space Mono', monospace; background-color: #000; overflow: hidden; margin: 0; padding: 0; }
+        .wood-texture { background-color: #934b19; background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.1) 10px, rgba(0,0,0,0.1) 20px); }
+        .parchment { 
+            background-color: #fdf5e6; 
+            border: 6px solid #321200; 
+            position: relative;
+            box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.5);
+        }
+        .parchment::before, .parchment::after { 
+            content: '◈'; 
+            position: absolute; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            color: #321200; 
+            font-size: 24px; 
+        }
+        .parchment::before { top: -20px; }
+        .parchment::after { bottom: -20px; }
+        
+        .scanline {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: 0;
+            z-index: 60;
+            pointer-events: none;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+        
+        .particle {
+            position: fixed;
+            bottom: -80px;
+            pointer-events: none;
+            z-index: 100;
+            font-size: 32px;
+        }
+
+        .rpg-prompt::before {
+            content: '▶';
+            margin-right: 8px;
+            color: #116b1f;
+        }
+    </style>
+</head>
+<body class="flex flex-col h-screen w-screen relative">
+<div class="scanline"></div>
+<!-- Fullscreen Background -->
+<div class="fixed inset-0 z-0">
+<img alt="Romantic 8-bit sunset beach" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ujBDDnavOtJT7CqJthLcUHB7TsDlqHuUUEvwfd_GSVWddAeDRVOjXM_scioY25TRokZDavznsaAqeAvzOFVvxTaNqfQ0FGsQlRbJLaRuWGgs4daAqD8Hwj4JI3Ndih5-XV-gaNVYWFjgMvrM5q1jXdFThNKxkIuRwwZLMEbO3qah8aIA0nGIY5bdLw7Xn3_ZD1qefv1gOlzkEG6cwicBCjOuZKzaBRiC5-BvlLNWNSPA4BWXSTSQclr2jA">
+</div>
+<!-- Top Navigation -->
+<header class="fixed top-0 left-0 right-0 h-16 z-50 wood-texture border-b-4 border-on-secondary-fixed-variant flex justify-between items-center px-margin-mobile">
+<div class="font-headline-lg-mobile text-headline-lg-mobile font-bold uppercase tracking-widest text-on-primary">ZHILLAN OS</div>
+<div class="flex gap-2">
+<button class="bg-secondary-container p-2 border-2 border-on-secondary-fixed text-on-secondary-fixed shadow-[2px_2px_0px_0px_rgba(50,18,0,1)] hover:translate-y-0.5 hover:shadow-none transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="map">map</span>
+</button>
+<button class="bg-secondary-container p-2 border-2 border-on-secondary-fixed text-on-secondary-fixed shadow-[2px_2px_0px_0px_rgba(50,18,0,1)] hover:translate-y-0.5 hover:shadow-none transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="inventory_2">inventory_2</span>
+</button>
+<button class="bg-secondary-container p-2 border-2 border-on-secondary-fixed text-on-secondary-fixed shadow-[2px_2px_0px_0px_rgba(50,18,0,1)] hover:translate-y-0.5 hover:shadow-none transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area centered -->
+<main class="flex-grow relative z-20 flex items-center justify-center p-4">
+<!-- Centered Dialogue Box -->
+<div class="relative w-full max-w-lg parchment p-8 flex flex-col items-center">
+<div class="w-full font-body-lg text-on-surface mb-8 text-center" id="finale-text">
+<div class="text-left inline-block">Walaupun kadang random,<br>
+                    kadang ngeselin,<br>
+                    seringnya cuek,,<br>
+                    tetap manusia favorit ❤ </div>
+</div>
+<!-- Main Action Button -->
+<button class="font-headline-lg-mobile text-headline-lg-mobile bg-primary text-on-primary border-4 border-on-primary px-10 py-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.5)] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)] active:translate-y-2 active:shadow-none transition-all uppercase tracking-tight" id="celebrate-btn">
+                Peluk Jauh
+            </button>
+</div>
+</main>
+<script>
+        const celebrateBtn = document.getElementById('celebrate-btn');
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            const types = ['🎈', '❤️', '💖', '✨', '🌸', '💝'];
+            const type = types[Math.floor(Math.random() * types.length)];
+            particle.textContent = type;
+            
+            const startX = Math.random() * window.innerWidth;
+            const duration = 4000 + Math.random() * 5000;
+            // Noticeably larger sizes
+            const size = 32 + Math.random() * 40;
+            const sway = 40 + Math.random() * 80;
+            
+            particle.style.left = startX + 'px';
+            particle.style.fontSize = size + 'px';
+            
+            document.body.appendChild(particle);
+
+            const animation = particle.animate([
+                { transform: `translateY(0) translateX(0)`, opacity: 1 },
+                { transform: `translateY(-${window.innerHeight / 2}px) translateX(${sway}px)`, opacity: 1 },
+                { transform: `translateY(-${window.innerHeight + 200}px) translateX(${-sway}px)`, opacity: 0 }
+            ], {
+                duration: duration,
+                easing: 'linear'
+            });
+
+            animation.onfinish = () => particle.remove();
+        }
+
+        celebrateBtn.addEventListener('click', () => {
+            // Trigger haptic-like sound
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+                oscillator.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.1);
+                gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                oscillator.start();
+                oscillator.stop(audioCtx.currentTime + 0.1);
+            } catch(e) {}
+
+            // Significantly increased quantity of objects (initial burst)
+            for (let i = 0; i < 150; i++) {
+                setTimeout(createParticle, i * 20);
+            }
+            
+            // Continuous lush stream for a while
+            const interval = setInterval(createParticle, 50);
+            setTimeout(() => clearInterval(interval), 6000);
+        });
+    </script>
+
+
+</body></html>
