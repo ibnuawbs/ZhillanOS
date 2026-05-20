@@ -1,0 +1,316 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ZHILLAN OS - Scanning...</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2d322b",
+                        "on-secondary-fixed-variant": "#753401",
+                        "on-tertiary-container": "#fafdff",
+                        "on-tertiary-fixed-variant": "#004d62",
+                        "on-background": "#181d17",
+                        "primary-fixed-dim": "#84da80",
+                        "secondary": "#934b19",
+                        "inverse-primary": "#84da80",
+                        "tertiary-fixed-dim": "#89d0ed",
+                        "surface-container": "#ebefe5",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#ffb68c",
+                        "outline-variant": "#bfcab9",
+                        "tertiary-container": "#317d98",
+                        "surface-container-high": "#e5eadf",
+                        "primary": "#116b1f",
+                        "on-tertiary-fixed": "#001f29",
+                        "surface-dim": "#d7dcd1",
+                        "primary-fixed": "#a0f799",
+                        "surface-variant": "#dfe4da",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f6fbf0",
+                        "secondary-container": "#ffa26a",
+                        "surface": "#f6fbf0",
+                        "on-surface-variant": "#40493d",
+                        "error-container": "#ffdad6",
+                        "outline": "#707a6c",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#f7fff1",
+                        "tertiary-fixed": "#baeaff",
+                        "surface-tint": "#156d22",
+                        "surface-bright": "#f6fbf0",
+                        "surface-container-low": "#f1f5eb",
+                        "surface-container-highest": "#dfe4da",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#318536",
+                        "tertiary": "#05647e",
+                        "on-secondary-fixed": "#321200",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#783603",
+                        "inverse-on-surface": "#eef2e8",
+                        "on-primary-fixed-variant": "#005312",
+                        "on-primary-fixed": "#002204",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#ffdbc9",
+                        "on-surface": "#181d17"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "max-width": "1200px",
+                        "gutter": "16px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "caption": ["Space Mono"],
+                        "headline-lg": ["Space Mono"],
+                        "body-lg": ["Space Mono"],
+                        "body-md": ["Space Mono"],
+                        "headline-xl": ["Space Mono"],
+                        "headline-lg-mobile": ["Space Mono"],
+                        "label-md": ["Space Mono"]
+                    },
+                    "fontSize": {
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Space Mono', monospace; background-color: #000; overflow: hidden; margin: 0; padding: 0; }
+        .pixel-border { box-shadow: 0 0 0 4px #2d322b, 0 0 0 8px #753401; }
+        .wood-texture { background-color: #934b19; background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.1) 10px, rgba(0,0,0,0.1) 20px); }
+        .parchment { 
+            background-color: #fdf5e6; 
+            border: 6px solid #321200; 
+            position: relative;
+            box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.5);
+        }
+        .parchment::before, .parchment::after { 
+            content: '◈'; 
+            position: absolute; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            color: #321200; 
+            font-size: 24px; 
+        }
+        .parchment::before { top: -20px; }
+        .parchment::after { bottom: -20px; }
+        
+        .scanline {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: 0;
+            z-index: 60;
+            pointer-events: none;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+        .animate-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* Retro RPG Cursor/Marker style */
+        .rpg-prompt::before {
+            content: '▶';
+            margin-right: 8px;
+            color: #116b1f;
+        }
+
+        /* 8-bit Progress Bar */
+        .progress-container {
+            width: 100%;
+            height: 24px;
+            background: #dfe4da;
+            border: 4px solid #321200;
+            position: relative;
+            image-rendering: pixelated;
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: #116b1f;
+            transition: width 0.1s linear;
+        }
+        .progress-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(90deg, transparent 90%, rgba(50, 18, 0, 0.2) 90%);
+            background-size: 20px 100%;
+            pointer-events: none;
+        }
+    </style>
+<style>@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }</style></head>
+<body class="flex flex-col h-screen w-screen relative">
+<div class="scanline"></div>
+<!-- Fullscreen Background -->
+<div class="fixed inset-0 z-0">
+<img alt="vibrant 8-bit pixel art landscape" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0uihzOr91e_5wo_cTu5Hjr_rmsm9p3zBm1MdkRsXewOGGT1E1OihIGmYnldIixNf4cwoGlAukcAR3exftUR75mjDuk1ROdhAO5abA8SEFbf-4Q_J78kKxoili4PJfcozSNHDgOSaqj9l0a7x2afKfRg-pyvUlbA5R5thlRR3VeCDgA5faXc80YMjD5i4zIn_8rWkmpTHFxmlGscM56aCueQGPEhmDoJkIpjR3OEhFvYpD6vovPMs5Jcve7Fy">
+</div>
+<!-- Top Navigation (HUD) -->
+<header class="fixed top-0 left-0 right-0 h-16 z-50 wood-texture border-b-4 border-on-secondary-fixed-variant flex justify-between items-center px-margin-mobile">
+<div class="font-headline-lg-mobile text-headline-lg-mobile font-bold uppercase tracking-widest text-on-primary">ZHILLAN OS</div>
+<div class="flex gap-2">
+<button class="bg-secondary-container p-2 border-2 border-on-secondary-fixed text-on-secondary-fixed shadow-[2px_2px_0px_0px_rgba(50,18,0,1)] hover:translate-y-0.5 hover:shadow-none transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="map">map</span>
+</button>
+<button class="bg-secondary-container p-2 border-2 border-on-secondary-fixed text-on-secondary-fixed shadow-[2px_2px_0px_0px_rgba(50,18,0,1)] hover:translate-y-0.5 hover:shadow-none transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="inventory_2">inventory_2</span>
+</button>
+<button class="bg-secondary-container p-2 border-2 border-on-secondary-fixed text-on-secondary-fixed shadow-[2px_2px_0px_0px_rgba(50,18,0,1)] hover:translate-y-0.5 hover:shadow-none transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow relative z-20 flex items-center justify-center p-4">
+<!-- Centered Dialogue Box -->
+<div class="relative w-full max-w-md parchment p-8 flex flex-col items-center">
+<!-- Text Display Area -->
+<div class="w-full font-body-md text-on-surface mb-6 min-h-[160px] flex flex-col justify-start overflow-y-auto" id="boot-text">
+
+<div class="flex flex-col gap-1" id="status-container"></div>
+</div>
+<!-- 8-bit Progress Bar -->
+<div class="w-full mb-8">
+<div class="progress-container">
+<div class="progress-bar" id="progress-bar" style="width: 100%;"></div>
+</div>
+<div class="text-right font-caption text-on-surface-variant mt-1" id="progress-percent">100%</div>
+</div>
+<!-- Action Button -->
+<div class="h-16 flex items-center justify-center w-full">
+<button class="font-headline-lg-mobile text-headline-lg-mobile bg-primary text-on-primary border-4 border-on-primary px-8 py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.5)] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)] active:translate-y-2 active:shadow-none transition-all uppercase tracking-tight hidden" id="result-btn">
+                    LIHAT HASIL
+                </button>
+</div>
+</div>
+</main>
+<script>
+        const statusLines = [
+            "Initializing neural scan...",
+            "Scanning cuteness...",
+            "Scanning mood...",
+            "Scanning hidden anger...",
+            "Scanning stress level...",
+            "Scanning cuteness (double check)...",
+            "Compiling results..."
+        ];
+        
+        const container = document.getElementById('status-container');
+        const progressBar = document.getElementById('progress-bar');
+        const percentEl = document.getElementById('progress-percent');
+        const resultBtn = document.getElementById('result-btn');
+        
+        const duration = 6000; // 6 seconds
+        const startTime = Date.now();
+        let currentLineIndex = -1;
+        
+        function updateUI() {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Update Progress Bar
+            progressBar.style.width = (progress * 100) + '%';
+            percentEl.textContent = Math.floor(progress * 100) + '%';
+            
+            // Append scanning lines line-by-line
+            const nextLineIndex = Math.floor(progress * (statusLines.length - 0.01));
+            
+            if (nextLineIndex > currentLineIndex) {
+                for(let i = currentLineIndex + 1; i <= nextLineIndex; i++) {
+                    const lineDiv = document.createElement('div');
+                    lineDiv.className = 'flex items-start opacity-0 animate-[fadeIn_0.2s_ease-in_forwards]';
+                    lineDiv.innerHTML = `<span class="rpg-prompt text-on-surface">${statusLines[i]}</span>`;
+                    container.appendChild(lineDiv);
+                    
+                    // Auto-scroll to bottom of the list
+                    const bootText = document.getElementById('boot-text');
+                    bootText.scrollTop = bootText.scrollHeight;
+                    
+                    playRetroSound(440 + (i * 100), 0.05); // Increasing pitch for each line
+                }
+                currentLineIndex = nextLineIndex;
+            }
+            
+            // Show Button ONLY after 100% progress
+            if (progress >= 1 && resultBtn.classList.contains('hidden')) {
+                resultBtn.classList.remove('hidden');
+                resultBtn.classList.add('block');
+                
+                const completeLine = document.createElement('div');
+                completeLine.className = 'flex items-start text-primary font-bold mt-2 opacity-0 animate-[fadeIn_0.2s_ease-in_forwards]';
+                completeLine.innerHTML = `<span class="rpg-prompt">Scan Complete.</span>`;
+                container.appendChild(completeLine);
+                
+                playRetroSound(880, 0.3); // Success beep
+            }
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateUI);
+            }
+        }
+
+        function playRetroSound(freq, durationSec) {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                
+                oscillator.type = 'square';
+                oscillator.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                
+                gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + durationSec);
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                
+                oscillator.start();
+                oscillator.stop(audioCtx.currentTime + durationSec);
+            } catch(e) { /* Audio context might be blocked */ }
+        }
+
+        // Add fadeIn animation via JS to keep CSS clean
+        const style = document.createElement('style');
+        style.textContent = `@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }`;
+        document.head.appendChild(style);
+
+        // Start sequence after a small delay
+        setTimeout(() => {
+            updateUI();
+        }, 300);
+
+        // Micro-interaction for UI buttons
+        document.querySelectorAll('button').forEach(el => {
+            el.addEventListener('click', () => {
+                playRetroSound(1046.50, 0.1);
+            });
+        });
+    </script>
+
+
+</body></html>
