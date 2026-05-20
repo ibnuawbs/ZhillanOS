@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>ZHILLAN OS - SYSTEM OVERLOAD</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>ZHILLAN OS - SYSTEM OVERLOAD</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
         theme: {
@@ -96,7 +95,7 @@
         },
       }
     </script>
-<style>
+    <style>
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
@@ -121,57 +120,63 @@
     </style>
 </head>
 <body class="bg-black min-h-screen flex flex-col font-body-md overflow-hidden">
-<!-- TopAppBar -->
-<header class="bg-secondary dark:bg-on-secondary-fixed-variant text-on-secondary dark:text-secondary-fixed font-label-md text-label-md docked full-width top-0 border-b-4 border-on-secondary-container shadow-[4px_4px_0px_0px_rgba(50,18,0,1)] flex justify-between items-center w-full px-margin-mobile py-2 z-50">
-<div class="font-headline-lg-mobile text-headline-lg-mobile uppercase text-on-secondary dark:text-secondary-fixed">
+    <!-- TopAppBar -->
+    <header class="bg-secondary dark:bg-on-secondary-fixed-variant text-on-secondary dark:text-secondary-fixed font-label-md text-label-md docked full-width top-0 border-b-4 border-on-secondary-container shadow-[4px_4px_0px_0px_rgba(50,18,0,1)] flex justify-between items-center w-full px-margin-mobile py-2 z-50">
+        <div class="font-headline-lg-mobile text-headline-lg-mobile uppercase text-on-secondary dark:text-secondary-fixed">
             ZHILLAN OS
         </div>
-<div class="flex items-center gap-4">
-<button class="hover:bg-on-secondary-fixed-variant transition-all active:translate-y-1 active:shadow-none p-1">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-</button>
-</div>
-</header>
-<!-- Main Canvas -->
-<main class="flex-grow flex flex-col items-center justify-center px-margin-mobile text-center gap-8">
-<!-- Error Messaging -->
-<div class="flex flex-col gap-4">
-<h1 class="text-error font-headline-xl text-headline-xl animate-blink tracking-tighter">
+        <div class="flex items-center gap-4">
+            <button class="hover:bg-on-secondary-fixed-variant transition-all active:translate-y-1 active:shadow-none p-1">
+                <span class="material-symbols-outlined" data-icon="settings">settings</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Canvas -->
+    <main class="flex-grow flex flex-col items-center justify-center px-margin-mobile text-center gap-8">
+        <!-- Error Messaging -->
+        <div class="flex flex-col gap-4">
+            <h1 class="text-error font-headline-xl text-headline-xl animate-blink tracking-tighter">
                 SYSTEM OVERLOAD
             </h1>
-<p class="text-white font-body-lg text-body-lg opacity-90">
+            <p class="text-white font-body-lg text-body-lg opacity-90">
                 karena Zhillan terlalu lucuu..
             </p>
-</div>
-<!-- Progress Section -->
-<div class="w-full max-w-md flex flex-col items-center gap-6">
-<div class="w-full flex flex-col gap-2">
-<div class="flex justify-between items-end">
-<span class="text-primary-fixed font-label-md text-label-md uppercase">memperbaiki sistem</span>
-<span class="text-white font-label-md text-label-md" id="progress-percent">0%</span>
-</div>
-<!-- Retro Progress Bar -->
-<div class="w-full h-8 bg-surface-container-highest border-4 border-on-secondary-container p-1 overflow-hidden">
-<div class="h-full bg-primary w-0 transition-all duration-100 ease-linear" id="progress-bar" style="box-shadow: inset -4px 0 0 rgba(0,0,0,0.2);"></div>
-</div>
-</div>
-<!-- Action Button (Hidden Initially) -->
-<div class="opacity-0 transition-opacity duration-500 pointer-events-none" id="button-container">
-<button class="bg-primary text-on-primary font-label-md text-label-md uppercase px-12 py-4 border-4 border-on-primary-fixed-variant shadow-[4px_4px_0px_0px_rgba(50,18,0,1)] hover:bg-on-primary-fixed-variant active:translate-y-1 active:shadow-none transition-all">
+        </div>
+        
+        <!-- Progress Section -->
+        <div class="w-full max-w-md flex flex-col items-center gap-6">
+            <div class="w-full flex flex-col gap-2">
+                <div class="flex justify-between items-end">
+                    <span class="text-primary-fixed font-label-md text-label-md uppercase">memperbaiki sistem</span>
+                    <span class="text-white font-label-md text-label-md" id="progress-percent">0%</span>
+                </div>
+                <!-- Retro Progress Bar -->
+                <div class="w-full h-8 bg-surface-container-highest border-4 border-on-secondary-container p-1 overflow-hidden">
+                    <div class="h-full bg-primary w-0 transition-all duration-100 ease-linear" id="progress-bar" style="box-shadow: inset -4px 0 0 rgba(0,0,0,0.2);"></div>
+                </div>
+            </div>
+            
+            <!-- Action Button (Hidden Initially) -->
+            <div class="opacity-0 transition-opacity duration-500 pointer-events-none" id="button-container">
+                <button id="next-page-btn" class="bg-primary text-on-primary font-label-md text-label-md uppercase px-12 py-4 border-4 border-on-primary-fixed-variant shadow-[4px_4px_0px_0px_rgba(50,18,0,1)] hover:bg-on-primary-fixed-variant active:translate-y-1 active:shadow-none transition-all">
                     NEXT
                 </button>
-</div>
-</div>
-</main>
-<!-- Background Glitch Effect -->
-<div class="fixed inset-0 pointer-events-none z-[-1] opacity-10">
-<div class="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]"></div>
-</div>
-<script>
+            </div>
+        </div>
+    </main>
+
+    <!-- Background Glitch Effect -->
+    <div class="fixed inset-0 pointer-events-none z-[-1] opacity-10">
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]"></div>
+    </div>
+
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             const progressBar = document.getElementById('progress-bar');
             const progressPercent = document.getElementById('progress-percent');
             const buttonContainer = document.getElementById('button-container');
+            const nextBtn = document.getElementById('next-page-btn');
             
             let progress = 0;
             const duration = 5000; // 5 seconds
@@ -192,9 +197,14 @@
                 progressBar.style.width = `${progress}%`;
                 progressPercent.textContent = `${Math.round(progress)}%`;
             }, intervalTime);
+
+            // Handler klik dipasang di dalam DOMContentLoaded setelah button di-render
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    window.location.href = "/page6.html";
+                });
+            }
         });
-  startBtn.addEventListener('click', () => {
-    window.location.href = "/page6.html";
-});
     </script>
-</body></html>
+</body>
+</html>
