@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>ZHILLAN OS - SYSTEM OVERLOAD</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <script id="tailwind-config">
@@ -11,53 +12,53 @@
             theme: {
                 extend: {
                     "colors": {
-                        "secondary-fixed": "#ffdbc9",
-                        "tertiary-fixed": "#baeaff",
                         "tertiary-container": "#317d98",
-                        "on-secondary-fixed-variant": "#753401",
+                        "on-primary-fixed-variant": "#005312",
+                        "surface-variant": "#dfe4da",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e5eadf",
+                        "secondary-container": "#ffa26a",
                         "surface": "#f6fbf0",
+                        "tertiary": "#05647e",
+                        "on-surface": "#181d17",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#a0f799",
                         "on-error": "#ffffff",
-                        "primary-fixed-dim": "#84da80",
+                        "surface-container-low": "#f1f5eb",
+                        "surface-bright": "#f6fbf0",
+                        "outline-variant": "#bfcab9",
+                        "tertiary-fixed": "#baeaff",
+                        "primary": "#116b1f",
+                        "inverse-primary": "#84da80",
+                        "on-primary-fixed": "#002204",
+                        "primary-container": "#318536",
+                        "outline": "#707a6c",
                         "surface-container-highest": "#dfe4da",
                         "secondary-fixed-dim": "#ffb68c",
-                        "tertiary": "#05647e",
-                        "surface-bright": "#f6fbf0",
-                        "primary-container": "#318536",
-                        "on-primary-fixed-variant": "#005312",
-                        "primary-fixed": "#a0f799",
-                        "on-surface": "#181d17",
                         "on-secondary-fixed": "#321200",
-                        "surface-container": "#ebefe5",
-                        "on-primary-fixed": "#002204",
-                        "surface-container-low": "#f1f5eb",
-                        "on-tertiary-container": "#fafdff",
                         "on-error-container": "#93000a",
-                        "inverse-surface": "#2d322b",
-                        "on-secondary": "#ffffff",
-                        "on-secondary-container": "#783603",
                         "on-background": "#181d17",
-                        "surface-container-lowest": "#ffffff",
-                        "on-tertiary": "#ffffff",
-                        "error-container": "#ffdad6",
-                        "inverse-on-surface": "#eef2e8",
-                        "error": "#ba1a1a",
-                        "surface-variant": "#dfe4da",
-                        "on-primary-container": "#f7fff1",
-                        "surface-container-high": "#e5eadf",
-                        "surface-dim": "#d7dcd1",
-                        "on-surface-variant": "#40493d",
-                        "tertiary-fixed-dim": "#89d0ed",
-                        "outline-variant": "#bfcab9",
-                        "primary": "#116b1f",
-                        "on-tertiary-fixed-variant": "#004d62",
-                        "surface-tint": "#156d22",
-                        "on-primary": "#ffffff",
-                        "on-tertiary-fixed": "#001f29",
-                        "outline": "#707a6c",
-                        "background": "#f6fbf0",
-                        "inverse-primary": "#84da80",
                         "secondary": "#934b19",
-                        "secondary-container": "#ffa26a"
+                        "on-surface-variant": "#40493d",
+                        "surface-tint": "#156d22",
+                        "inverse-on-surface": "#eef2e8",
+                        "background": "#f6fbf0",
+                        "on-secondary-fixed-variant": "#753401",
+                        "surface-dim": "#d7dcd1",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ffdbc9",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#fafdff",
+                        "on-primary-container": "#f7fff1",
+                        "primary-fixed-dim": "#84da80",
+                        "inverse-surface": "#2d322b",
+                        "on-tertiary-fixed-variant": "#004d62",
+                        "on-secondary-container": "#783603",
+                        "tertiary-fixed-dim": "#89d0ed",
+                        "surface-container": "#ebefe5",
+                        "on-tertiary-fixed": "#001f29"
                     },
                     "borderRadius": {
                         "DEFAULT": "0.25rem",
@@ -73,17 +74,22 @@
                         "margin-desktop": "32px"
                     },
                     "fontFamily": {
-                        "headline-lg": ["Space Mono"],
-                        "headline-lg-mobile": ["Space Mono"],
                         "body-md": ["Space Mono"],
-                        "label-md": ["Space Mono"]
+                        "headline-lg-mobile": ["Space Mono"],
+                        "headline-lg": ["Space Mono"],
+                        "caption": ["Space Mono"],
+                        "body-lg": ["Space Mono"],
+                        "label-md": ["Space Mono"],
+                        "headline-xl": ["Space Mono"]
                     },
                     "fontSize": {
-                        "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
-                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
-                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
                         "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "700"}]
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "700"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
                     }
                 },
             },
@@ -199,19 +205,23 @@
 
             // Show popup after exactly 2.5 seconds of the animation
             setTimeout(() => {
-                popup.classList.add('visible');
+                if(popup) popup.classList.add('visible');
                 console.log("System Alert: Cuteness Overload detected.");
             }, 2500);
 
-            // Interaction for the Next button - Animasi mengecil lalu berpindah ke page4.html
-            nextBtn.addEventListener('click', () => {
-                popup.style.transform = 'scale(0.9)';
-                popup.style.opacity = '0';
-                
-                setTimeout(() => {
-                    window.location.href = "/page4.html";
-                }, 500);
-            });
+            // Perbaikan jalur tujuan ke page4.html tanpa tanda / di depan agar aman di segala env
+            if(nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    if(popup) {
+                        popup.style.transform = 'scale(0.9)';
+                        popup.style.opacity = '0';
+                    }
+                    
+                    setTimeout(() => {
+                        window.location.href = "page4.html";
+                    }, 500);
+                });
+            }
 
             // Random flickering of background info for atmosphere
             setInterval(() => {
