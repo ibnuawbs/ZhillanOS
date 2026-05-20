@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -89,7 +89,7 @@
             },
         }
     </script>
-<style>
+    <style>
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
@@ -128,96 +128,99 @@
     </style>
 </head>
 <body class="bg-black overflow-hidden font-body-md text-on-surface selection:bg-error selection:text-white">
-<!-- Top Navigation (HUD) - Replaced from SCREEN_7 style -->
-<header class="fixed top-0 left-0 right-0 h-16 z-50 wood-texture border-b-4 border-on-secondary-fixed-variant flex justify-between items-center px-margin-mobile">
-<div class="font-headline-lg-mobile text-headline-lg-mobile font-bold uppercase tracking-widest text-on-primary">ZHILLAN OS</div>
-<div class="flex gap-2">
-<button class="bg-secondary-container p-2 border-2 border-on-secondary-fixed text-on-secondary-fixed shadow-[2px_2px_0px_0px_rgba(50,18,0,1)] hover:translate-y-0.5 hover:shadow-none transition-all">
-<span class="material-symbols-outlined text-lg">map</span>
-</button>
-<button class="bg-secondary-container p-2 border-2 border-on-secondary-fixed text-on-secondary-fixed shadow-[2px_2px_0px_0px_rgba(50,18,0,1)] hover:translate-y-0.5 hover:shadow-none transition-all">
-<span class="material-symbols-outlined text-lg">inventory_2</span>
-</button>
-<button class="bg-secondary-container p-2 border-2 border-on-secondary-fixed text-on-secondary-fixed shadow-[2px_2px_0px_0px_rgba(50,18,0,1)] hover:translate-y-0.5 hover:shadow-none transition-all">
-<span class="material-symbols-outlined text-lg">settings</span>
-</button>
-</div>
-</header>
-<main class="relative h-screen w-screen flex flex-col items-center justify-center p-8 bg-[#000000]">
-<!-- CRT Screen Effect Layer -->
-<div class="fixed inset-0 crt-overlay z-10"></div>
-<!-- Main Content Area -->
-<div class="z-20 text-center space-y-12">
-<!-- Blinking Error Message -->
-<div class="animate-pixel-blink text-error font-headline-xl text-headline-xl tracking-tighter uppercase">
-            &gt; ERROR _
+    <!-- Top Navigation (HUD) -->
+    <header class="fixed top-0 left-0 right-0 h-16 z-50 wood-texture border-b-4 border-on-secondary-fixed-variant flex justify-between items-center px-margin-mobile">
+        <div class="font-headline-lg-mobile text-headline-lg-mobile font-bold uppercase tracking-widest text-on-primary">ZHILLAN OS</div>
+        <div class="flex gap-2">
+            <button class="bg-secondary-container p-2 border-2 border-on-secondary-fixed text-on-secondary-fixed shadow-[2px_2px_0px_0px_rgba(50,18,0,1)] hover:translate-y-0.5 hover:shadow-none transition-all">
+                <span class="material-symbols-outlined text-lg">map</span>
+            </button>
+            <button class="bg-secondary-container p-2 border-2 border-on-secondary-fixed text-on-secondary-fixed shadow-[2px_2px_0px_0px_rgba(50,18,0,1)] hover:translate-y-0.5 hover:shadow-none transition-all">
+                <span class="material-symbols-outlined text-lg">inventory_2</span>
+            </button>
+            <button class="bg-secondary-container p-2 border-2 border-on-secondary-fixed text-on-secondary-fixed shadow-[2px_2px_0px_0px_rgba(50,18,0,1)] hover:translate-y-0.5 hover:shadow-none transition-all">
+                <span class="material-symbols-outlined text-lg">settings</span>
+            </button>
         </div>
-<!-- Pixel Art Dialog Box -->
-<div class="max-w-md mx-auto bg-[#fdf5e6] p-8 pixel-border pixel-shadow relative" id="error-popup">
-<!-- Decorative Scroll Ends -->
-<div class="absolute -top-4 -left-4 w-8 h-8 bg-[#934b19] border-4 border-[#321200]"></div>
-<div class="absolute -top-4 -right-4 w-8 h-8 bg-[#934b19] border-4 border-[#321200]"></div>
-<div class="absolute -bottom-4 -left-4 w-8 h-8 bg-[#934b19] border-4 border-[#321200]"></div>
-<div class="absolute -bottom-4 -right-4 w-8 h-8 bg-[#934b19] border-4 border-[#321200]"></div>
-<div class="flex flex-col items-center gap-6">
-<!-- Icon Placeholder -->
-<div class="w-24 h-24 bg-white border-4 border-on-secondary-fixed-variant flex items-center justify-center relative overflow-hidden">
-<img alt="16-bit pixel art illustration of a cute but glitching cat spirit" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhhgivOUfaSeoOjc2TuculGpIaG5pgskKO-RhyzeeRZxz-ekIj-rhv9bWxKhAUcnH6nvonlXXm7SFQUu5P0cIKC92RRbQAQ5AanmseuVqffZmSOY7fnJYyEnyd4AUA9p-nQEYzD5RIEUE_-SF8NXE_lbh5ENsTc527Ae4y2HnE0Rc-haHygdVYhK8zwrV3d_XD72i5sGWEVOofeD2gWNNAcVVvTscI3wx_tUiZ3EKjoaeaGppPj7tNQuA4ISExEDHDpi1mZHAfyi2_"/>
-</div>
-<p class="text-on-secondary-fixed font-headline-lg text-headline-lg leading-tight uppercase text-center">
-                    Kelucuan melebihi batas sistem
-                </p>
-<p class="text-on-surface-variant font-body-md text-body-md">
-                    Critical Overflow: Cuteness levels have exceeded safe operational parameters. System core melting down.
-                </p>
-<!-- Pixel Button -->
-<button class="group relative px-12 py-4 bg-[#116b1f] text-white border-4 border-[#002204] shadow-[0px_4px_0px_0px_#002204] active:translate-y-1 active:shadow-none transition-all" id="next-btn">
-<span class="font-headline-lg text-headline-lg uppercase tracking-widest">NEXT</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Glitchy Background Elements -->
-<div class="absolute top-24 left-10 text-primary-fixed-dim font-mono text-xs opacity-40 pointer-events-none">
-        LOAD_ASSETS... OK<br/>
-        CHECK_SPRITES... OK<br/>
-        CALCULATE_KAWAII... CRITICAL_ERROR<br/>
-        BUFFER_OVERFLOW_AT_0xFF32A
-    </div>
-</main>
-<!-- Bottom Navigation Removed per request -->
-<script>
-    // Micro-interactions and Timing
-    document.addEventListener('DOMContentLoaded', () => {
-        const popup = document.getElementById('error-popup');
-        const nextBtn = document.getElementById('next-btn');
+    </header>
 
-        // Show popup after exactly 2.5 seconds of the animation
-        setTimeout(() => {
-            popup.classList.add('visible');
-            console.log("System Alert: Cuteness Overload detected.");
-        }, 2500);
-
-        // Interaction for the Next button
-        nextBtn.addEventListener('click', () => {
-            popup.style.transform = 'scale(0.9)';
-            popup.style.opacity = '0';
+    <main class="relative h-screen w-screen flex flex-col items-center justify-center p-8 bg-[#000000]">
+        <!-- CRT Screen Effect Layer -->
+        <div class="fixed inset-0 crt-overlay z-10"></div>
+        
+        <!-- Main Content Area -->
+        <div class="z-20 text-center space-y-12">
+            <!-- Blinking Error Message -->
+            <div class="animate-pixel-blink text-error font-headline-xl text-headline-xl tracking-tighter uppercase">
+                &gt; ERROR _
+            </div>
             
-            setTimeout(() => {
-                window.location.reload(); // Simulate reboot
-            }, 500);
-        });
+            <!-- Pixel Art Dialog Box -->
+            <div class="max-w-md mx-auto bg-[#fdf5e6] p-8 pixel-border pixel-shadow relative" id="error-popup">
+                <!-- Decorative Scroll Ends -->
+                <div class="absolute -top-4 -left-4 w-8 h-8 bg-[#934b19] border-4 border-[#321200]"></div>
+                <div class="absolute -top-4 -right-4 w-8 h-8 bg-[#934b19] border-4 border-[#321200]"></div>
+                <div class="absolute -bottom-4 -left-4 w-8 h-8 bg-[#934b19] border-4 border-[#321200]"></div>
+                <div class="absolute -bottom-4 -right-4 w-8 h-8 bg-[#934b19] border-4 border-[#321200]"></div>
+                
+                <div class="flex flex-col items-center gap-6">
+                    <!-- Icon Placeholder -->
+                    <div class="w-24 h-24 bg-white border-4 border-on-secondary-fixed-variant flex items-center justify-center relative overflow-hidden">
+                        <img alt="16-bit pixel art illustration of a cute but glitching cat spirit" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhhgivOUfaSeoOjc2TuculGpIaG5pgskKO-RhyzeeRZxz-ekIj-rhv9bWxKhAUcnH6nvonlXXm7SFQUu5P0cIKC92RRbQAQ5AanmseuVqffZmSOY7fnJYyEnyd4AUA9p-nQEYzD5RIEUE_-SF8NXE_lbh5ENsTc527Ae4y2HnE0Rc-haHygdVYhK8zwrV3d_XD72i5sGWEVOofeD2gWNNAcVVvTscI3wx_tUiZ3EKjoaeaGppPj7tNQuA4ISExEDHDpi1mZHAfyi2_"/>
+                    </div>
+                    <p class="text-on-secondary-fixed font-headline-lg text-headline-lg leading-tight uppercase text-center">
+                        Kelucuan melebihi batas sistem
+                    </p>
+                    <p class="text-on-surface-variant font-body-md text-body-md">
+                        Critical Overflow: Cuteness levels have exceeded safe operational parameters. System core melting down.
+                    </p>
+                    <!-- Pixel Button -->
+                    <button class="group relative px-12 py-4 bg-[#116b1f] text-white border-4 border-[#002204] shadow-[0px_4px_0px_0px_#002204] active:translate-y-1 active:shadow-none transition-all" id="next-btn">
+                        <span class="font-headline-lg text-headline-lg uppercase tracking-widest">NEXT</span>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-        // Random flickering of background info for atmosphere
-        setInterval(() => {
-            const glitchInfo = document.querySelector('.absolute.top-24');
-            if(glitchInfo) {
-                glitchInfo.style.opacity = Math.random() > 0.5 ? '0.4' : '0.2';
-            }
-        }, 100);
-    });
-  nextBtn.addEventListener('click', () => {
-    window.location.href = "/page4.html";
-});
-</script>
-</body></html>
+        <!-- Glitchy Background Elements -->
+        <div class="absolute top-24 left-10 text-primary-fixed-dim font-mono text-xs opacity-40 pointer-events-none">
+            LOAD_ASSETS... OK<br/>
+            CHECK_SPRITES... OK<br/>
+            CALCULATE_KAWAII... CRITICAL_ERROR<br/>
+            BUFFER_OVERFLOW_AT_0xFF32A
+        </div>
+    </main>
+
+    <script>
+        // Micro-interactions and Timing
+        document.addEventListener('DOMContentLoaded', () => {
+            const popup = document.getElementById('error-popup');
+            const nextBtn = document.getElementById('next-btn');
+
+            // Show popup after exactly 2.5 seconds of the animation
+            setTimeout(() => {
+                popup.classList.add('visible');
+                console.log("System Alert: Cuteness Overload detected.");
+            }, 2500);
+
+            // Interaction for the Next button - Animasi mengecil lalu berpindah ke page4.html
+            nextBtn.addEventListener('click', () => {
+                popup.style.transform = 'scale(0.9)';
+                popup.style.opacity = '0';
+                
+                setTimeout(() => {
+                    window.location.href = "/page4.html";
+                }, 500);
+            });
+
+            // Random flickering of background info for atmosphere
+            setInterval(() => {
+                const glitchInfo = document.querySelector('.absolute.top-24');
+                if(glitchInfo) {
+                    glitchInfo.style.opacity = Math.random() > 0.5 ? '0.4' : '0.2';
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>
